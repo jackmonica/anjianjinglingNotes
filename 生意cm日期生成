@@ -1,0 +1,22 @@
+i = 0
+
+Do
+    a = i mod 7
+    
+    b = i \ 7
+    
+    x = 1400 + a * 35
+    
+    y = 350 + b * 30
+    
+    TracePrint x & "," & y
+    
+    i = i + 1
+    
+    If i = 100 Then 
+    
+        Exit Do
+        
+    End If
+    
+Loop
