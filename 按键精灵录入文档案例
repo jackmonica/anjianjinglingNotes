@@ -1,0 +1,121 @@
+
+行 = 2//设置行变量
+
+Call Plugin.Office.OpenXls("C:\Users\Administrator\Desktop\300kg报名开门红.xlsx")   //打开Excel文档工作表
+
+
+Rem 循环开始
+
+//初始状态     用屏幕某个点初始时候的颜色来判断
+
+Do
+
+    If GetPixelColor(10, 5) = "452598" Then 
+
+        Exit Do
+
+    Else 
+        Delay500
+    End If
+
+Loop
+
+
+
+
+数据 = Plugin.Office.ReadXls(1, 行, 3)   //向Excel文档工作表(1)单元格(2, 3)读出内容存入(Text)变量
+
+//MsgBox 数据    //测试能否读取成功
+
+
+
+// 选中页面
+
+'==========以下是按键精灵录制的内容==========
+MoveTo 779, 301
+Delay 500
+LeftDown 1
+'==========以上是按键精灵录制的内容==========     
+Delay 200
+
+
+KeyPress "Tab", 1    //插入光标
+
+SayString 数据//写入变量“数据”
+
+Delay 500
+
+
+//单选框选择
+
+性别= Plugin.Office.ReadXls(1, 行, 3)   //向Excel文档工作表(1)单元格(3, 3)读出内容存入(Text)变量
+
+Select Case 性别
+Case "男"
+    KeyPress "Tab", 1
+    KeyPress "Space", 1
+    KeyPress "Tab", 2
+
+
+    //情况1
+Case "女"
+    KeyPress "Tab", 2
+    KeyPress "Space", 1
+    KeyPress "Tab", 1
+    //情况2
+Case Else
+    MessageBox "性别错误"
+    //否则
+End Select
+
+SayString Plugin.Office.ReadXls(1, 行, 3)   //向Excel文档工作表(1)单元格(4, 3)读出内容存入(Text)变量
+KeyPress "Tab", 1
+
+SayString Plugin.Office.ReadXls(1, 行, 3)   //向Excel文档工作表(1)单元格(5, 3)读出内容存入(Text)变量
+KeyPress "Tab", 1
+SayString Plugin.Office.ReadXls(1, 行, 3)   //向Excel文档工作表(1)单元格(6, 3)读出内容存入(Text)变量
+
+KeyPress "Tab", 1
+KeyPress "Space", 1
+
+Do
+    FindPic 0,0,1024,768,"Attachment:\截图.bmp",0.9,intX,intY      //提交完成后，点击确定按钮
+    //以下是条件判断；如果返回的坐标大于0，那么就说明找到了。
+    If intX > 0 And intY > 0 Then 
+    /*
+        MoveTo	intX+20,intY+20
+        Delay 200
+        LeftClick 1    另外一种方式
+      */  
+        KeyPress "Space", 1
+        Exit Do
+
+    Else 
+        Delay 500
+        //在这里可以添加找到坐标后，需要做的处理。
+    End If
+Loop
+
+If 行 = 19 Then 
+    Goto 程序结束
+Else
+
+ 	
+End If
+
+行 = 行 + 1
+
+Goto 循环开始
+
+Rem 程序结束
+
+
+
+Call Plugin.Office.CloseXls()//关闭Excel文档工作表
+
+条数 = 行 - 1
+
+RunApp "D:\音乐.mp3"
+
+
+MessageBox "程序运行结束，已录入数据"&条数
