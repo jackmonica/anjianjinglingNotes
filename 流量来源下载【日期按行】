@@ -1,0 +1,173 @@
+UserVar yzb=DropList{"第一行日期":"350"|"第二行日期":"380"|"第三行日期":"410"|"第四行日期":"440"|"第五行日期":"470"}=350 "选择日期行"
+xzb = 1365
+//yzb = 350
+For 7
+    If yzb = 350 Then 
+        xzb = xzb + 35
+        FindPic 1000, 150, 1700, 350, "Attachment:\日期.bmp", 0.9, x,y
+        Delay 1000
+        MoveTo x,y   //移动到日期
+        Delay 2000
+        MoveTo xzb,yzb    //选择的日期（动态填写）
+        Delay 1000
+        LeftClick 1     //点击日期
+        Delay 2000
+        MoveTo 1658, 384   //选择日期后,移动到旁边
+        Delay 1000
+        KeyPress "End", 1
+        Delay 1000
+        FindPic 1256,200, 1750, 863, "Attachment:\转化.bmp", 0.9, x1, y1
+        Delay 1000
+        MoveTo x1,y1   //一键转换
+        Delay 2000
+        LeftClick 1    //点击进行转换
+        Delay 2000
+        MoveTo 1670, 537    //跳转页面,移动到倒三角
+        Delay 2000
+        LeftClick 1    //点击倒三角
+        Delay 1500
+        MoveTo 1559, 588    //移动到“导出xlxs表格”
+        Delay 2000
+        LeftClick 1    //点击导出
+        Delay 1500
+        MoveTo 1740,142   //移动到关闭按钮
+        LeftClick 1   //点击关闭按钮
+        Delay 1500
+        LeftClick 1
+        Delay 1000  
+        KeyPress "Home", 1//跳回到首页,向上滚动到原点
+        Delay 1000
+    ElseIf yzb = 380 Then
+        xzb = xzb + 35
+        FindPic 1170,211,1688,288, "Attachment:\日期.bmp", 0.9, x, y
+        Delay 1000
+        MoveTo x,y   //移动到日期
+        Delay 2000
+        MoveTo xzb,yzb    //选择的日期（动态填写）
+        Delay 1000
+        LeftClick 1     //点击日期
+        Delay 2000
+        MoveTo 1658, 384   //选择日期后,移动到旁边
+        Delay 1000
+        KeyPress "End", 1
+        Delay 1000
+        MoveTo 1420,250   //一键转换
+        Delay 1000
+        LeftClick 1    //点击进行转换
+        Delay 2000
+        MoveTo 1670, 537    //跳转页面,移动到倒三角
+        Delay 1000
+        LeftClick 1    //点击倒三角
+        Delay 1000
+        MoveTo 1559, 588    //移动到“导出xlxs表格”
+        Delay 1000
+        LeftClick 1    //点击导出
+        Delay 1000
+        MoveTo 1740,142   //移动到关闭按钮
+        LeftClick 1   //点击关闭按钮
+        Delay 1500
+        LeftClick 1
+        Delay 1000  
+        KeyPress "Home", 1//跳回到首页,向上滚动到原点
+        Delay 1000
+    ElseIf yzb = 410 Then
+        xzb = xzb + 35
+        FindPic 1170,211,1688,288, "Attachment:\日期.bmp", 0.9, x, y
+        Delay 1000
+        MoveTo x, y   //移动到日期
+        Delay 2000
+        MoveTo xzb,yzb    //选择的日期（动态填写）
+        Delay 1000
+        LeftClick 1     //点击日期
+        Delay 2000
+        MoveTo 1658, 384   //选择日期后,移动到旁边
+        Delay 1000
+        KeyPress "End", 1
+        Delay 1000
+        MoveTo 1420,250   //一键转换
+        Delay 1000
+        LeftClick 1    //点击进行转换
+        Delay 2000
+        MoveTo 1670, 537    //跳转页面,移动到倒三角
+        Delay 1000
+        LeftClick 1    //点击倒三角
+        Delay 1000
+        MoveTo 1559, 588    //移动到“导出xlxs表格”
+        Delay 1000
+        LeftClick 1    //点击导出
+        Delay 1000
+        MoveTo 1740,142   //移动到关闭按钮
+        LeftClick 1   //点击关闭按钮
+        Delay 1500
+        LeftClick 1
+        Delay 1000  
+        KeyPress "Home", 1//跳回到首页,向上滚动到原点
+        Delay 1000
+    ElseIf yzb = 440 Then
+        xzb = xzb + 35
+        FindPic 1170,211,1688,288, "Attachment:\日期.bmp", 0.9, x, y
+        Delay 1000
+        MoveTo x, y   //移动到日期
+        Delay 2000
+        MoveTo xzb,yzb    //选择的日期（动态填写）
+        Delay 1000
+        LeftClick 1     //点击日期
+        Delay 2000
+        MoveTo 1658, 384   //选择日期后,移动到旁边
+        Delay 1000
+        KeyPress "End", 1
+        Delay 1000
+        MoveTo 1420,250   //一键转换
+        Delay 1000
+        LeftClick 1    //点击进行转换
+        Delay 2000
+        MoveTo 1670, 537    //跳转页面,移动到倒三角
+        Delay 1000
+        LeftClick 1    //点击倒三角
+        Delay 1000
+        MoveTo 1559, 588    //移动到“导出xlxs表格”
+        Delay 1000
+        LeftClick 1    //点击导出
+        Delay 1000
+        MoveTo 1740,142   //移动到关闭按钮
+        LeftClick 1   //点击关闭按钮
+        Delay 1500
+        LeftClick 1
+        Delay 1000  
+        KeyPress "Home", 1//跳回到首页,向上滚动到原点
+        Delay 1000
+    ElseIf yzb = 470 Then
+        xzb = xzb + 35
+        FindPic 1170,211,1688,288, "Attachment:\日期.bmp", 0.9, x, y
+        Delay 1000
+        MoveTo x, y   //移动到日期
+        Delay 2000
+        MoveTo xzb,yzb    //选择的日期（动态填写）
+        Delay 1000
+        LeftClick 1     //点击日期
+        Delay 2000
+        MoveTo 1658, 384   //选择日期后,移动到旁边
+        Delay 1000
+        KeyPress "End", 1
+        Delay 1000
+        MoveTo 1420,250   //一键转换
+        Delay 1000
+        LeftClick 1    //点击进行转换
+        Delay 2000
+        MoveTo 1670, 537    //跳转页面,移动到倒三角
+        Delay 1000
+        LeftClick 1    //点击倒三角
+        Delay 1000
+        MoveTo 1559, 588    //移动到“导出xlxs表格”
+        Delay 1000
+        LeftClick 1    //点击导出
+        Delay 1000
+        MoveTo 1740,142   //移动到关闭按钮
+        LeftClick 1   //点击关闭按钮
+        Delay 1500
+        LeftClick 1
+        Delay 1000  
+        KeyPress "Home", 1//跳回到首页,向上滚动到原点
+        Delay 1000
+    End If
+Next
