@@ -1,0 +1,45 @@
+
+
+//商品活动价格设定
+
+
+
+行 = 2
+
+Call Plugin.Office.OpenXls("C:\Users\Administrator\Desktop\618 登高梯.xlsx")
+
+For 22//sku数量
+
+    price = Plugin.Office.ReadXls(1, 行, 2)    //sheet1,行,列
+
+    KeyPress "Tab", 1
+
+    Delay 500
+
+    KeyPress "Tab", 1
+
+    Delay 500
+
+    SayString price
+
+    Delay 500
+
+    行 = 行 + 1
+
+Next
+
+Call Plugin.Office.CloseXls()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
