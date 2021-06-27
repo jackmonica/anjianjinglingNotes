@@ -1,0 +1,36 @@
+
+/*
+
+后台自动发送文本,先查找父句柄，然后再查找子句柄，后台发送定的是子句柄
+客户窗口宽和高也就是坐标。
+
+*/
+
+//查找窗口类名(StandardFrame)或者标题(0),返回找到的句柄Hwnd
+Hwnd = Plugin.Window.Find("Notepad", "test.txt - 记事本")
+TracePrint Hwnd
+
+//根据父窗口句柄(Hwnd)查找子窗口匹配类名(Edit)或者匹配标题(0),返回找到匹配的句柄HwndEx
+HwndEx = Plugin.Window.FindEx(Hwnd, 0, "Edit", 0)
+TracePrint HwndEx
+
+//得到窗口句柄的边框大小
+BK = Plugin.Window.GetWindowRect(Hwnd)
+TracePrint BK
+
+BK数组 = split(BK, "|")
+TracePrint "边框左上角和右下角的坐标分别为"&BK数组(0)&","&BK数组(1)&","&BK数组(2)&","&BK数组(3)
+
+//得到窗口句柄的客户区大小
+KH = Plugin.Window.GetClientRect(Hwnd)
+
+TracePrint	KH
+
+KH数组 = split(KH, "|")
+TracePrint "客户区左上角坐标为"&KH数组(0)&","&KH数组(1)&","&"客户区宽度="&KH数组(2)&","&"客户区高度="&KH数组(3)&",客户区右下角坐标："&(CInt(KH数组(0))+CInt(KH数组(2)))&","&(CInt(KH数组(1))+CInt(KH数组(3)))
+
+For 5
+	Call Plugin.Bkgnd.SendString(HwndEx, "test")
+Next
+
+
