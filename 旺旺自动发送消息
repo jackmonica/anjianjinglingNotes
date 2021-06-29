@@ -1,0 +1,68 @@
+行 =1
+
+//打开Excel文档工作表
+Call Plugin.Office.OpenXls("C:\Users\Administrator\Desktop\旺旺名称.xlsx")
+//向Excel文档工作表(1)单元格(1, 1)读出内容存入(Text)变量
+
+For 5
+
+Text = Plugin.Office.ReadXls(1, 行, 1)
+
+//查找窗口类名("RichEditComponent")或者标题(),返回找到的句柄Hwnd
+//Hwnd = Plugin.Window.Find("RichEditComponent", "皇球旗舰店:永立 - 接待中心")
+Hwnd =1445524
+
+If Hwnd = 0 Then 
+
+    MessageBox "没有找到父窗口句柄"
+
+End If
+//根据父窗口句柄(Hwnd)查找子窗口匹配类名("RichEditComponent")或者匹配标题(0),返回找到匹配的句柄HwndEx
+//HwndEx = Plugin.Window.FindEx(Hwnd, 0, "RichEditComponent", 0)
+HwndEx =1250068
+
+If HwndEx = 0 Then 
+
+    MessageBox "没有找到子窗口句柄"
+
+End If
+
+HwndEx1 = 856836
+
+//移动窗口到(4, 5)位置
+Call Plugin.Window.Move(HwndEx1, 4, 5)
+//向后台窗口句柄(变量：HwndEx1)的客户区域(坐标：4, 5)处发送一个鼠标左键单击
+
+Delay 1000
+
+Call Plugin.Bkgnd.LeftClick(HwndEx1, 4, 5)
+
+Delay 1000
+
+Call Plugin.Bkgnd.SendString(HwndEx1, Text)
+
+Delay 1000
+
+Call Plugin.Bkgnd.KeyPress(HwndEx1, 13)
+
+Delay 1000
+
+
+
+Call Plugin.Bkgnd.SendString(HwndEx, "我可以自动要好评啦！")
+
+//向后台窗口句柄(变量：HwndEx)发送一个键盘(扫描码：8)按键
+
+
+Call Plugin.Bkgnd.KeyPress(HwndEx, 13)
+
+行 = 行 + 1
+
+Next
+
+//关闭Excel文档工作表
+Call Plugin.Office.CloseXls()
+
+
+
+
